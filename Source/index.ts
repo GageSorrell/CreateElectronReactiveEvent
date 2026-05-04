@@ -17,7 +17,7 @@ import { promises as Fs } from "fs";
 import { GetPackageRootDirectory } from "@sorrell/utilities";
 import { resolve } from "path";
 
-async function InstallElectronReactiveEventCli(): Promise<boolean>
+async function InstallReactiveEventCli(): Promise<boolean>
 {
     return await new Promise<boolean>((Resolve: ((Value: boolean) => void)) =>
     {
@@ -28,7 +28,7 @@ async function InstallElectronReactiveEventCli(): Promise<boolean>
             [
                 "install",
                 "--save-dev",
-                "electron-reactive-event-cli"
+                "reactive-event-cli"
             ],
             {
                 shell: false,
@@ -58,9 +58,9 @@ async function RunSetupWizard(): Promise<void>
             Command,
             [
                 "exec",
-                "--package=electron-reactive-event-cli",
+                "--package=reactive-event-cli",
                 "--",
-                "electron-reactive-event-cli-setup"
+                "reactive-event-cli-setup"
             ],
             {
                 shell: false,
@@ -74,17 +74,17 @@ async function RunSetupWizard(): Promise<void>
 }
 
 /**
- * Installs the latest version of the `electron-reactive-event-cli` package to the NodeJS
+ * Installs the latest version of the `reactive-event-cli` package to the NodeJS
  * project of the current working directory, then runs the CLI's `setup` command.
  */
 async function Main(): Promise<void>
 {
 
-    const InstalledSuccessfully: boolean = await InstallElectronReactiveEventCli();
+    const InstalledSuccessfully: boolean = await InstallReactiveEventCli();
 
     if (!InstalledSuccessfully)
     {
-        console.error(`Failed to install ${ Code("electron-reactive-event-cli") }`);
+        console.error(`Failed to install ${ Code("reactive-event-cli") }`);
         process.exit(1);
     }
 
@@ -108,10 +108,10 @@ async function Main(): Promise<void>
 
     const InstallCli = async (): Promise<void> =>
     {
-        const Success: boolean = await InstallElectronReactiveEventCli();
+        const Success: boolean = await InstallReactiveEventCli();
         if (!Success)
         {
-            throw new Error("Failed to install electron-reactive-event-cli.  Exiting...");
+            throw new Error("Failed to install reactive-event-cli.  Exiting...");
         }
     };
 
@@ -122,7 +122,7 @@ async function Main(): Promise<void>
         },
         {
             task: InstallCli,
-            title: `Adding ${ Code("electron-reactive-event-cli") } as a devDependency.`
+            title: `Adding ${ Code("reactive-event-cli") } as a devDependency.`
         }
     ],
     {
@@ -130,11 +130,11 @@ async function Main(): Promise<void>
     }).run();
 
     const Format: Formatter = MakeFormatter({
-        "electron-reactive-event-cli": Code,
+        "reactive-event-cli": Code,
         setup: Code
     });
 
-    console.log(Format("Running the setup wizard of electron-reactive-event-cli..."));
+    console.log(Format("Running the setup wizard of reactive-event-cli..."));
 
     await RunSetupWizard();
 }

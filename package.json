@@ -1,10 +1,10 @@
 {
-  "name": "create-electron-reactive-event",
+  "name": "create-reactive-event",
   "version": "0.0.2",
-  "description": "The init package for using electron-reactive-event-cli.",
+  "description": "The init package for using reactive-event-cli.",
   "bin": "./Distribution/index.js",
   "keywords": [
-    "electron-reactive-event",
+    "reactive-event",
     "electron",
     "init",
     "create",
@@ -16,7 +16,7 @@
     "type-safety",
     "type-safe",
     "cli",
-    "electron-reactive-event-cli"
+    "reactive-event-cli"
   ],
   "files": [
     ".npmignore",
@@ -26,12 +26,12 @@
     "Distribution",
     "Distribution/**/*"
   ],
-  "homepage": "https://electron-reactive-event.sorrell.sh",
+  "homepage": "https://reactive-event.sorrell.sh",
   "bugs": {
     "url": "https://github.com/GageSorrell/SorrellWm/issues"
   },
   "repository": {
-    "directory": "Package/CreateElectronReactiveEvent",
+    "directory": "Package/CreateReactiveEvent",
     "type": "git",
     "url": "git+https://github.com/GageSorrell/SorrellWm.git"
   },
